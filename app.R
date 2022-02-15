@@ -102,11 +102,11 @@ server <- function(input, output, session) {
     
     dataset <- reactive({
         if (is.null(values1$upload_state)) {
-            readxl::read_xlsx("LabPrices2021.xlsx")
+            readxl::read_xlsx("analyticalfeed.xlsx")
         } else if (values1$upload_state == 'uploaded') {
             readxl::read_xlsx(input$newprices$datapath, sheet = 1)
         } else if (values1$upload_state == 'reset') {
-            readxl::read_xlsx("LabPrices2021.xlsx")
+            readxl::read_xlsx("analyticalfeed.xlsx")
         }
     })
     
